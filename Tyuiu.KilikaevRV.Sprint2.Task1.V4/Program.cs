@@ -28,8 +28,7 @@ namespace Tyuiu.KilkaevRV.Sprint2.Task4.V4
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                             *");
             Console.WriteLine("***************************************************************************");
 
-            bool[] result = new bool[5];
-            result = ds.Calculate(result);
+            bool[] result = ds.Calculate();
 
             Console.WriteLine("Логическая последовательность:");
             for (int i = 0; i < result.Length; i++)
@@ -39,11 +38,12 @@ namespace Tyuiu.KilkaevRV.Sprint2.Task4.V4
 
             Console.WriteLine();
             Console.WriteLine("Подробная расшифровка операций:");
-            Console.WriteLine($"(a == b) | (c != d)     -> ({a} == {b}) | ({c} != {d})     -> {result[0]}");
-            Console.WriteLine($"(a < b) & (c > d)       -> ({a} < {b}) & ({c} > {d})       -> {result[1]}");
-            Console.WriteLine($"(b <= a) || (c < d)     -> ({b} <= {a}) || ({c} < {d})     -> {result[2]}");
-            Console.WriteLine($"(a != b) && (c == d)    -> ({a} != {b}) && ({c} == {d})    -> {result[3]}");
-            Console.WriteLine($"!(a > b) ^ (c <= d)     -> !({a} > {b}) ^ ({c} <= {d})     -> {result[4]}");
+            Console.WriteLine($"(175 + b) < (a + 176)    -> (175 + {b}) < ({a} + 176)    -> {result[0]}");
+            Console.WriteLine($"(b - 175) > (176 - a)    -> ({b} - 175) > (176 - {a})    -> {result[1]}");
+            Console.WriteLine($"(175 * b) < (a * 176)    -> (175 * {b}) < ({a} * 176)    -> {result[2]}");
+            Console.WriteLine($"(b / 175) > (176 / a)    -> ({b} / 175) > (176 / {a})    -> {result[3]}");
+            Console.WriteLine($"(175 % b) == (a % 176)   -> (175 % {b}) == ({a} % 176)   -> {result[4]}");
+            Console.WriteLine($"(b + 175) != (176 + a)   -> ({b} + 175) != (176 + {a})   -> {result[5]}");
 
             Console.ReadKey();
         }
