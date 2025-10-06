@@ -42,10 +42,5 @@ namespace Tyuiu.KilkaevRV.Sprint2.Task1.V4.Lib
 
             return result;
         }
-
-        public bool[] GetLogicOperations(int a, int b, int c, int d)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
