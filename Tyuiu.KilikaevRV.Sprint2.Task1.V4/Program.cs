@@ -1,7 +1,7 @@
 ﻿using System;
-using Tyuiu.KilkaevRV.Sprint2.Task4.V4.Lib;
+using Tyuiu.KilkaevRV.Sprint2.Task1.V4.Lib;
 
-namespace Tyuiu.KilkaevRV.Sprint2.Task4.V4
+namespace Tyuiu.KilkaevRV.Sprint2.Task1.V4
 {
     class Program
     {
@@ -13,15 +13,8 @@ namespace Tyuiu.KilkaevRV.Sprint2.Task4.V4
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
             Console.WriteLine("***************************************************************************");
 
-            int a = 175;
-            int b = 176;
-            int c = 414;
-            int d = 414;
-
-            Console.WriteLine($"a = {a}");
-            Console.WriteLine($"b = {b}");
-            Console.WriteLine($"c = {c}");
-            Console.WriteLine($"d = {d}");
+            Console.WriteLine("Логические операции для получения последовательности:");
+            Console.WriteLine("[false, false, false, false, true, false]");
             Console.WriteLine();
 
             Console.WriteLine("***************************************************************************");
@@ -30,20 +23,18 @@ namespace Tyuiu.KilkaevRV.Sprint2.Task4.V4
 
             bool[] result = ds.Calculate();
 
-            Console.WriteLine("Логическая последовательность:");
-            for (int i = 0; i < result.Length; i++)
+            if (result == null || result.Length == 0)
             {
-                Console.WriteLine($"[{i}] = {result[i]}");
+                Console.WriteLine("Ошибка: массив пустой!");
             }
-
-            Console.WriteLine();
-            Console.WriteLine("Подробная расшифровка операций:");
-            Console.WriteLine($"(175 + b) < (a + 176)    -> (175 + {b}) < ({a} + 176)    -> {result[0]}");
-            Console.WriteLine($"(b - 175) > (176 - a)    -> ({b} - 175) > (176 - {a})    -> {result[1]}");
-            Console.WriteLine($"(175 * b) < (a * 176)    -> (175 * {b}) < ({a} * 176)    -> {result[2]}");
-            Console.WriteLine($"(b / 175) > (176 / a)    -> ({b} / 175) > (176 / {a})    -> {result[3]}");
-            Console.WriteLine($"(175 % b) == (a % 176)   -> (175 % {b}) == ({a} % 176)   -> {result[4]}");
-            Console.WriteLine($"(b + 175) != (176 + a)   -> ({b} + 175) != (176 + {a})   -> {result[5]}");
+            else
+            {
+                Console.WriteLine("Логическая последовательность:");
+                for (int i = 0; i < result.Length; i++)
+                {
+                    Console.WriteLine($"[{i}] = {result[i]}");
+                }
+            }
 
             Console.ReadKey();
         }

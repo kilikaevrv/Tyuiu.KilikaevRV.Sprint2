@@ -2,35 +2,43 @@
 
 using System;
 
-namespace Tyuiu.KilkaevRV.Sprint2.Task4.V4.Lib
+namespace Tyuiu.KilkaevRV.Sprint2.Task1.V4.Lib
 {
     public class DataService : ISprint2Task1V4
     {
         public bool[] Calculate()
         {
-            int a = 175;
-            int b = 176;
-            int c = 414;
-            int d = 414;
-
             bool[] result = new bool[6];
 
-            // Используем арифметические выражения с числами 175 и b (176)
-            result[0] = (175 + b) == (a + 176);           // (175+176)==(175+176) = True → но нужно False
-            result[0] = (175 + b) < (a + 176);            // (175+176)<(175+176) = False
+            // Используем операции сравнения и логические операции
+            // для получения последовательности [false, false, false, false, true, false]
 
-            result[1] = (b - 175) > (176 - a);            // (176-175)>(176-175) = False
-            result[2] = (175 * b) <= (a * 176);           // (175*176)<=(175*176) = True → но нужно False
-            result[2] = (175 * b) < (a * 176);            // (175*176)<(175*176) = False
+            int a = 1;
+            int b = 2;
+            int c = 3;
+            int d = 4;
 
-            result[3] = (b / 175) >= (176 / a);           // (176/175)>=(176/175) = True → но нужно False
-            result[3] = (b / 175) > (176 / a);            // (176/175)>(176/175) = False
+            // Операция 1: false
+            result[0] = (a > b) && (c < d);  // (1 > 2) && (3 < 4) = false && true = false
 
-            result[4] = (175 % b) != (a % 176);           // (175%176)!=(175%176) = False → но нужно True
-            result[4] = (175 % b) == (a % 176);           // (175%176)==(175%176) = True
+            // Операция 2: false  
+            result[1] = (a == b) || (c != c); // (1 == 2) || (3 != 3) = false || false = false
 
-            result[5] = (b + 175) == (176 + a);           // (176+175)==(176+175) = True → но нужно False
-            result[5] = (b + 175) != (176 + a);           // (176+175)!=(176+175) = False
+            // Операция 3: false
+            result[2] = (a + b) < (c - d);   // (1 + 2) < (3 - 4) = 3 < -1 = false
+
+            // Операция 4: false
+            result[3] = !(a < b) & (c > d);  // !(1 < 2) & (3 > 4) = !true & false = false & false = false
+
+            // Операция 5: true
+            result[4] = (a != b) ^ (c == c); // (1 != 2) ^ (3 == 3) = true ^ true = false → нужно true
+            // Исправляем:
+            result[4] = (a != b) ^ (c != c); // (1 != 2) ^ (3 != 3) = true ^ false = true
+
+            // Операция 6: false
+            result[5] = (a >= b) || (c <= d); // (1 >= 2) || (3 <= 4) = false || true = true → нужно false
+            // Исправляем:
+            result[5] = (a >= b) || (c > d);  // (1 >= 2) || (3 > 4) = false || false = false
 
             return result;
         }
