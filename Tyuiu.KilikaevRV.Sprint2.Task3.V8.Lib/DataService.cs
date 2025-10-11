@@ -1,9 +1,10 @@
 ﻿
     using System;
-using tyuiu.cources.programming.interfaces.Sprint2;
+    using tyuiu.cources.programming.interfaces.Sprint2;
 
-namespace Tyuiu.KilikaevRV.Sprint2.Task3.V8.Lib
-    {
+
+    namespace Tyuiu.KilikaevRV.Sprint2.Task3.V8.Lib
+{
         public class FunctionCalculator : ISprint2Task3V8
         {
             /// <summary>
@@ -25,13 +26,9 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task3.V8.Lib
                     {
                         y = Math.Sin(x) + Math.Cos(x);
                     }
-                    else if (x >= 5 && x < 10)
+                    else // x >= 5
                     {
                         y = Math.Cos(x) - Math.Sin(x);
-                    }
-                    else
-                    {
-                        y = Math.Pow(x, 2) - Math.Cos(Math.Pow(x, 2)) + 10;
                     }
                 }
                 else // x < 0
