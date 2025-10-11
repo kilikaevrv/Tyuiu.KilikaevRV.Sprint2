@@ -2,16 +2,15 @@
     using System;
     using tyuiu.cources.programming.interfaces.Sprint2;
 
-
     namespace Tyuiu.KilikaevRV.Sprint2.Task3.V8.Lib
-{
+    {
         public class FunctionCalculator : ISprint2Task3V8
         {
             /// <summary>
             /// Вычисляет значение функции Y для заданного X
             /// </summary>
             /// <param name="x">Аргумент функции</param>
-            /// <returns>Значение функции Y, округленное до 3 знаков после запятой</returns>
+            /// <returns>Значение функции Y, округлённое до 3 знаков после запятой</returns>
             public static double CalculateFunction(double x)
             {
                 double y;
@@ -26,9 +25,13 @@
                     {
                         y = Math.Sin(x) + Math.Cos(x);
                     }
-                    else // x >= 5
+                    else if (x >= 5 && x < 10)
                     {
-                        y = Math.Cos(x) - Math.Sin(x);
+                        y = Math.Sin(x) - Math.Cos(x); // исправлено
+                    }
+                    else // x >= 10
+                    {
+                        y = Math.Pow(x, 2) - Math.Cos(Math.Pow(x, 2)) + 10;
                     }
                 }
                 else // x < 0
