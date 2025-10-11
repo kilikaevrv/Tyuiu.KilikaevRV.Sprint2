@@ -1,82 +1,48 @@
 ﻿
-using Tyuiu.KilikaevRV.Sprint2.Task3.V8.Lib;
-using System;
+    using System;
+    using Tyuiu.KilikaevRV.Sprint2.Task3.V8.Lib;
 
-namespace Tyuiu.KilikaevRV.Sprint2.Task3.V8.Test
-{
-    [TestClass]
-    public class FunctionCalculatorTests
+    namespace Tyuiu.KilikaevRV.Sprint2.Task3.V8.Test
     {
-        [TestMethod]
-        public void CalculateFunction_XIsZero_ReturnsCorrectValue()
-        {
-            double x = 0;
-            double expected = Math.Pow(x, 2) - Math.Sin(Math.Pow(x, 2)) + 12;
-            expected = Math.Round(expected, 3);
+        
+            [TestClass]
+            public class DataServiceTest
+            {
+                [TestMethod]
+                public void TestForPositiveX()
+                {
+                    DataService ds = new DataService();
+                    double res = ds.Calculate(1);
+                    double expected = Math.Round((Math.Sin(1) + Math.Cos(1)) / (Math.Cos(1) - Math.Sin(1)), 3);
+                    Assert.AreEqual(expected, res);
+                }
 
-            double actual = FunctionCalculator.CalculateFunction(x);
+                [TestMethod]
+                public void TestForZeroX()
+                {
+                    DataService ds = new DataService();
+                    double res = ds.Calculate(0);
+                    double expected = Math.Round(0 * 0 - Math.Cos(0 * 0) + 10, 3);
+                    Assert.AreEqual(expected, res);
+                }
 
-            Assert.AreEqual(expected, actual);
-        }
+                [TestMethod]
+                public void TestForNegativeX()
+                {
+                    DataService ds = new DataService();
+                    double res = ds.Calculate(-5);
+                    double expected = Math.Round(Math.Pow(1 + (3 / Math.Pow(-5, 2)), -5), 3);
+                    Assert.AreEqual(expected, res);
+                }
 
-        [TestMethod]
-        public void CalculateFunction_XPositiveLessThan5_ReturnsCorrectValue()
-        {
-            double x = 3;
-            double expected = Math.Sin(x) + Math.Cos(x);
-            expected = Math.Round(expected, 3);
-
-            double actual = FunctionCalculator.CalculateFunction(x);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void CalculateFunction_XPositiveBetween5And10_ReturnsCorrectValue()
-        {
-            double x = 7;
-            double expected = Math.Sin(x) - Math.Cos(x); // исправлено
-            expected = Math.Round(expected, 3);
-
-            double actual = FunctionCalculator.CalculateFunction(x);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void CalculateFunction_XPositiveGreaterOrEqual10_ReturnsCorrectValue()
-        {
-            double x = 12;
-            double expected = Math.Pow(x, 2) - Math.Cos(Math.Pow(x, 2)) + 10;
-            expected = Math.Round(expected, 3);
-
-            double actual = FunctionCalculator.CalculateFunction(x);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void CalculateFunction_XNegativeGreaterThanMinus12_ReturnsCorrectValue()
-        {
-            double x = -5;
-            double expected = 1 + (3 / Math.Pow(x, 2));
-            expected = Math.Round(expected, 3);
-
-            double actual = FunctionCalculator.CalculateFunction(x);
-
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void CalculateFunction_XNegativeLessOrEqualMinus12_ReturnsCorrectValue()
-        {
-            double x = -15;
-            double expected = x + 10 * x - (5 / x);
-            expected = Math.Round(expected, 3);
-
-            double actual = FunctionCalculator.CalculateFunction(x);
-
-            Assert.AreEqual(expected, actual);
-        }
+                [TestMethod]
+                public void TestForXLessThanMinus12()
+                {
+                    DataService ds = new DataService();
+                    double res = ds.Calculate(-13);
+                    double expected = Math.Round(-13 + 10 * (-13) - (5 / (-13)), 3);
+                    Assert.AreEqual(expected, res);
+                }
+            }
     }
-}
+    }
