@@ -5,7 +5,7 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V2.Lib
 {
 
     
-        public class PointChecker
+        public class PointChecker : ISprint2Task2V2
         {
             /// <summary>
             /// Проверяет, находится ли точка внутри круга заданного радиуса
@@ -46,5 +46,10 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V2.Lib
 
                 return inCircle || inSquare || inRing;
             }
+
+        public bool CheckDotInShadedArea(int x, int y)
+        {
+            throw new NotImplementedException();
         }
+    }
 }
