@@ -1,44 +1,39 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint2;
 
-using System;
 
-namespace Tyuiu.KilkaevRV.Sprint2.Task1.V4.Lib
+namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib
 {
     public class DataService : ISprint2Task1V4
     {
-        public bool[] Calculate()
+        public bool CheckDotInShadedArea(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool[] GetLogicOperation(int a, int b, int c, int d)
         {
             bool[] result = new bool[6];
 
-            // Используем операции сравнения и логические операции
-            // для получения последовательности [false, false, false, false, true, false]
+            // Используем требуемые операции сравнения и логические операции
+            // Каждая операция используется один раз в соответствии с условием
 
-            int a = 1;
-            int b = 2;
-            int c = 3;
-            int d = 4;
+            // 1. False
+            result[0] = (a == b) & (c != d);
 
-            // Операция 1: false
-            result[0] = (a > b) && (c < d);  // (1 > 2) && (3 < 4) = false && true = false
+            // 2. False  
+            result[1] = (b < a) | (c > d);
 
-            // Операция 2: false  
-            result[1] = (a == b) || (c != c); // (1 == 2) || (3 != 3) = false || false = false
+            // 3. False
+            result[2] = (c <= b) && (d >= a) ^ (a != c);
 
-            // Операция 3: false
-            result[2] = (a + b) < (c - d);   // (1 + 2) < (3 - 4) = 3 < -1 = false
+            // 4. False
+            result[3] = (d == c) | (b > a) && (c < d);
 
-            // Операция 4: false
-            result[3] = !(a < b) & (c > d);  // !(1 < 2) & (3 > 4) = !true & false = false & false = false
+            // 5. True
+            result[4] = (a != b) && (c == d) | (b <= c);
 
-            // Операция 5: true
-            result[4] = (a != b) ^ (c == c); // (1 != 2) ^ (3 == 3) = true ^ true = false → нужно true
-            // Исправляем:
-            result[4] = (a != b) ^ (c != c); // (1 != 2) ^ (3 != 3) = true ^ false = true
-
-            // Операция 6: false
-            result[5] = (a >= b) || (c <= d); // (1 >= 2) || (3 <= 4) = false || true = true → нужно false
-            // Исправляем:
-            result[5] = (a >= b) || (c > d);  // (1 >= 2) || (3 > 4) = false || false = false
+            // 6. False
+            result[5] = (d >= c) ^ (a < b) | (c != d);
 
             return result;
         }
@@ -48,4 +43,4 @@ namespace Tyuiu.KilkaevRV.Sprint2.Task1.V4.Lib
             throw new NotImplementedException();
         }
     }
-}
+}}
