@@ -18,7 +18,7 @@ namespace Tyulu.KilikaevRY.Sprint2.Task2.V2
             int x = 3, y = 4, radius = 5;
 
             // Act
-            bool result = PointChecker.IsInCircle(x, y, radius);
+            bool result = PointChecker.IsIncircle(x, y, radius);
 
             // Assert
             Assert.IsTrue(result);
@@ -31,7 +31,7 @@ namespace Tyulu.KilikaevRY.Sprint2.Task2.V2
             int x = 4, y = 4, radius = 5;
 
             // Act
-            bool result = PointChecker.IsInCircle(x, y, radius);
+            bool result = PointChecker.IsIncircle(x, y, radius);
 
             // Assert
             Assert.IsFalse(result);
