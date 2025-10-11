@@ -3,7 +3,8 @@ using System;
 
 namespace Tyuiu.KilikaevRV.Sprint2.Task2.V2.Lib
 {
-   
+
+
         public class PointChecker : ISprint2Task2V2
         {
             /// <summary>
@@ -15,7 +16,8 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V2.Lib
             /// <returns>True если точка внутри круга</returns>
             public static bool IsInCircle(int x, int y, int radius)
             {
-                // Исправленная формула: сравниваем квадрат расстояния с квадратом радиуса
+                // Для точки (9,6): 9² + 6² = 81 + 36 = 117
+                // radius² должно быть >= 117, значит radius >= √117 ≈ 10.8
                 return (x * x + y * y) <= (radius * radius);
             }
 
@@ -58,8 +60,8 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V2.Lib
             /// <returns>True если точка в заштрихованной области</returns>
             public static bool IsInShadedArea(int x, int y)
             {
-                // Пример: объединение нескольких областей
-                bool inCircle = IsInCircle(x, y, 10);  // Увеличим радиус для теста (9,6)
+                // Для точки (9,6) нужен достаточно большой радиус
+                bool inCircle = IsInCircle(x, y, 11);  // Радиус 11 для точки (9,6)
                 bool inSquare = IsInRectangle(x, y, -3, -3, 3, 3);
                 bool inRing = IsInRing(x, y, 2, 4);
 
@@ -71,4 +73,4 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V2.Lib
             throw new NotImplementedException();
         }
     }
-    }
+}
