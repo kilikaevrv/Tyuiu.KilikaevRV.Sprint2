@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Tyuiu.KilikaevRV.Sprint2.Task5.V6.Lib;
 
 namespace Tyuiu.KilikaevRV.Sprint2.Task2.V6.Test
@@ -11,23 +12,23 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V6.Test
         {
             DataService ds = new DataService();
 
-            // Тест 1: Дама пик
-            Assert.AreEqual("Дама пик", ds.FindCardNameAndSuit(12, 1));
+            // Тест: дама пик (m=1, k=12)
+            Assert.AreEqual("дама пик", ds.FindCardNameAndSuit(1, 12));
 
-            // Тест 2: Шестерка бубен
-            Assert.AreEqual("Шестерка бубен", ds.FindCardNameAndSuit(6, 3));
+            // Тест: шестерка бубен (m=3, k=6)
+            Assert.AreEqual("шестерка бубен", ds.FindCardNameAndSuit(3, 6));
 
-            // Тест 3: Туз червей
-            Assert.AreEqual("Туз червей", ds.FindCardNameAndSuit(14, 4));
+            // Тест: туз червей (m=4, k=14)
+            Assert.AreEqual("туз червей", ds.FindCardNameAndSuit(4, 14));
 
-            // Тест 4: Валет треф
-            Assert.AreEqual("Валет треф", ds.FindCardNameAndSuit(11, 2));
+            // Тест: валет треф (m=2, k=11)
+            Assert.AreEqual("валет треф", ds.FindCardNameAndSuit(2, 11));
 
-            // Тест 5: Король пик
-            Assert.AreEqual("Король пик", ds.FindCardNameAndSuit(13, 1));
+            // Тест: король пик (m=1, k=13)
+            Assert.AreEqual("король пик", ds.FindCardNameAndSuit(1, 13));
 
-            // Тест 6: Десятка червей
-            Assert.AreEqual("Десятка червей", ds.FindCardNameAndSuit(10, 4));
+            // Тест: десятка червей (m=4, k=10)
+            Assert.AreEqual("десятка червей", ds.FindCardNameAndSuit(4, 10));
         }
 
         [TestMethod]
@@ -36,8 +37,12 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task2.V6.Test
             DataService ds = new DataService();
 
             // Граничные значения
-            Assert.AreEqual("Шестерка пик", ds.FindCardNameAndSuit(6, 1));
-            Assert.AreEqual("Туз червей", ds.FindCardNameAndSuit(14, 4));
+            Assert.AreEqual("шестерка пик", ds.FindCardNameAndSuit(1, 6));
+            Assert.AreEqual("туз червей", ds.FindCardNameAndSuit(4, 14));
+
+            // Неверные значения
+            Assert.AreEqual("Неизвестная карта неизвестной масти", ds.FindCardNameAndSuit(5, 12));
+            Assert.AreEqual("Неизвестная карта неизвестной масти", ds.FindCardNameAndSuit(1, 15));
         }
     }
 }

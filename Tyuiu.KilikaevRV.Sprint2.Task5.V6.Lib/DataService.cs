@@ -3,48 +3,47 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task5.V6.Lib
 {
     public class DataService : ISprint2Task5V6
     {
-        public string FindCardNameAndSuit(int value, int suit)
+        public string FindCardNameAndSuit(int m, int k)
         {
             string cardName = "";
             string cardSuit = "";
 
-            // Определяем достоинство карты с помощью switch
-            switch (value)
+            // Определяем достоинство карты k (6-14) с помощью switch
+            switch (k)
             {
                 case 6:
-                    cardName = "Шестерка";
+                    cardName = "шестерка";
                     break;
                 case 7:
-                    cardName = "Семерка";
+                    cardName = "семерка";
                     break;
                 case 8:
-                    cardName = "Восьмерка";
+                    cardName = "восьмерка";
                     break;
                 case 9:
-                    cardName = "Девятка";
+                    cardName = "девятка";
                     break;
                 case 10:
-                    cardName = "Десятка";
+                    cardName = "десятка";
                     break;
                 case 11:
-                    cardName = "Валет";
+                    cardName = "валет";
                     break;
                 case 12:
-                    cardName = "Дама";
+                    cardName = "дама";
                     break;
                 case 13:
-                    cardName = "Король";
+                    cardName = "король";
                     break;
                 case 14:
-                    cardName = "Туз";
+                    cardName = "туз";
                     break;
                 default:
-                    cardName = "Неизвестная карта";
-                    break;
+                    return "Неизвестная карта неизвестной масти";
             }
 
-            // Определяем масть карты с помощью switch
-            switch (suit)
+            // Определяем масть карты m (1-4) с помощью switch
+            switch (m)
             {
                 case 1:
                     cardSuit = "пик";
@@ -59,8 +58,7 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task5.V6.Lib
                     cardSuit = "червей";
                     break;
                 default:
-                    cardSuit = "неизвестной масти";
-                    break;
+                    return "Неизвестная карта неизвестной масти";
             }
 
             // Собираем полное название карты
