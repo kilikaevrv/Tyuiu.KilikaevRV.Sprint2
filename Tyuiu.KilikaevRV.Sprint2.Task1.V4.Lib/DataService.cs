@@ -40,7 +40,3 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib;
             return result;
         }
     }
-}
-        throw new NotImplementedException();
-    }
-}
