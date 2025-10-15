@@ -2,8 +2,10 @@
 using Tyuiu.KilikaevRV.Sprint2.Task1.V4.Test.Lib;
 
 namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Test;
-{
-    class Program
+using System;
+using Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib;
+
+class Program
     {
         static void Main(string[] args)
         {
@@ -29,7 +31,7 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Test;
             Console.WriteLine("***************************************************************************");
 
             DataService ds = new DataService();
-            bool[] result = ds.Calculate(a, b, c, d);
+            bool[] result = ds.GetLogicOperations(a, b, c, d);
 
             Console.Write("Логическая последовательность: (");
             for (int i = 0; i < result.Length; i++)
@@ -62,4 +64,3 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Test;
             Console.ReadKey();
         }
     }
-}
