@@ -5,7 +5,7 @@ using tyuiu.cources.programming.interfaces.Sprint2;
 namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib
 
 {
-    public class DataService
+    public class DataService : ISprint2Task1V4
     {
         private List<string> _items; // например, хранение данных в памяти
 
@@ -45,6 +45,11 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib
         }
 
         public bool[] GetCompareOperations(int a, int b, int c, int d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool[] GetLogicOperations(int a, int b, int c, int d)
         {
             throw new NotImplementedException();
         }
