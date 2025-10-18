@@ -1,17 +1,12 @@
 ﻿
 using System;
-using tyuiu.cources.programming.interfaces.Sprint1;
 using tyuiu.cources.programming.interfaces.Sprint2;
 
 namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib
 {
-    public class DataService : ISprint1Task1V4
+    public class DataService : ISprint2Task1V4
     {
-        public double Calculate(double x, double y)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public bool[] GetCompareOperations(int a, int b, int c, int d)
         {
             bool[] result = new bool[6];
@@ -25,6 +20,11 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Lib
             result[5] = c >= d;  // >=
 
             return result;
+        }
+
+        public bool[] GetLogicOperations(int a, int b, int c, int d)
+        {
+            throw new NotImplementedException();
         }
     }
 }
