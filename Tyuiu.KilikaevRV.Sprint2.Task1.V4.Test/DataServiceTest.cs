@@ -8,28 +8,20 @@ namespace Tyuiu.KilikaevRV.Sprint2.Task1.V4.Test
     [TestClass]
     public class DataServiceTest
     {
-        private DataService _service;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            _service = new DataService(); // создаём объект сервиса
-        }
-
         [TestMethod]
-        public void TestMethod1()
+        public void ValidGetLogicOperations()
         {
-            // пример теста: проверяем, что метод возвращает true
-            bool result = _service.SomeMethod();
-            Assert.IsTrue(result, "Метод должен возвращать true");
-        }
+            DataService ds = new DataService();
 
-        [TestMethod]
-        public void TestMethod2()
-        {
-            // пример теста с проверкой значения
-            int count = _service.GetItemsCount();
-            Assert.AreEqual(5, count, "Количество элементов должно быть 5");
+            int a = 175;
+            int b = 176;
+            int c = 414;
+            int d = 414;
+
+            bool[] res = ds.GetLogicOperations(a, b, c, d);
+            bool[] wait = new bool[6] { false, false, false, false, true, false };
+
+            CollectionAssert.AreEqual(wait, res);
         }
     }
 }
